@@ -37,6 +37,7 @@ db.login = require("./login.js")(sequelize, DataTypes);
 db.userProfile = require("./userProfile.js")(sequelize, DataTypes);
 db.division = require("./division.js")(sequelize, DataTypes);
 db.fault = require("./fault.js")(sequelize, DataTypes);
+db.uhfTag=require("./uhfTag.js")(sequelize,DataTypes);
 
 //Relations
 db.userProfile.login = db.userProfile.belongsTo(db.login, {
@@ -55,6 +56,11 @@ db.division.fault = db.division.hasMany(db.fault, {
 });
 
 db.fault.belongsTo(db.division);
+
+db.uhfTag.division = db.uhfTag.belongsTo(db.division, {
+  onDelete: "CASCADE",
+  onUpdate: "CASCADE",
+});
 
 db.sequelize
   .sync({ force: false, alter: false }) //force :true - drop all tables before start

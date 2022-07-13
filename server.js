@@ -12,6 +12,7 @@ const auth = require("./controllers/authController");
 const user = require("./controllers/usersController");
 const division = require("./controllers/divisionController");
 const fault = require("./controllers/faultController");
+const uhfTag = require("./controllers/uhfTagController")
 
 
 const app = express(); // express() return object. we assign it as app
@@ -41,6 +42,7 @@ app.use("/uploads", express.static("uploads")); //make uploads folder public & s
 // app.use("/api/divisions", division);
 // app.use("/api/disasters", disaster);
 app.use("/api/auth", auth);
+app.use("/api/uhftags", uhfTag);
 app.use("/api/users", user);
 app.use("/api/divisions", division);
 app.use("/api/faults", fault);

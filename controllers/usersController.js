@@ -336,6 +336,7 @@ router.post(
     const findRfid_tag = await UserProfile.findOne({
       where: { fullName: data.fullName },
     });
+    
     //changed
     if (findRfid_tag)
       return res

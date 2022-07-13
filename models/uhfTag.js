@@ -1,27 +1,20 @@
-
-// removed status attribute
-//
 module.exports = (Sequelize, DataTypes) => {
-    const UserProfile = Sequelize.define("userProfile", {
-      fullName: {
+    const UhfTag = Sequelize.define("uhfTag", {
+      uhfId: {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      nic: {
+      status: {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      district: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      city: {
+      locationId: {
         type: DataTypes.STRING,
         allowNull: true,
       },
     
     });
   
-    return UserProfile;
+    return UhfTag;
   };
   
